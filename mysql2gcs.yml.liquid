@@ -1,0 +1,27 @@
+in:
+  type: mysql
+  host: {{ env.URI }}
+  port: {{ env.PORT }}
+  user: {{ env.USER }}
+  password: {{ env.PASSWORD }}
+  database: {{ env.DATABASE }}
+  table: {{ env.TABLE }}
+  default_timezone: UTC
+  options: {useTimezone: true, serverTimezone: UTC}
+out:
+   type: gcs
+   bucket: {{ env.BUCKET }}
+   path_prefix: {{ env.PATH_PREFIX }}
+   auth_method: json_key
+   json_keyfile: {{ env.JSON_KEYFILE }}
+   file_ext: .tsv.gz
+   formatter:
+      type: csv
+      delimiter: "\t"
+      quote_policy: MINIMAL
+      header_line: true
+      escape: "^"
+      null_string: "\\N"
+   encoders:
+   -  type: gzip
+      level: 6

@@ -6,6 +6,8 @@ in:
   password: {{ env.PASSWORD }}
   database: {{ env.DATABASE }}
   table: {{ env.TABLE }}
+  default_timezone: UTC
+  options: {useTimezone: true, serverTimezone: UTC}
 out:
   type: bigquery
   project: {{ env.BQ_PROJECT }}

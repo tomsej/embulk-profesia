@@ -8,6 +8,7 @@ ENV EMBULK_VERSION=0.9.7 \
       embulk-input-mysql \
       embulk-output-bigquery \
       embulk-filter-to_json \
+      embulk-output-gcs \
     ' \
     NONEMBULK_GEM=' \
       httpclient \
