@@ -1,0 +1,20 @@
+in:
+  type: mysql
+  host: {{ env.URI }}
+  port: {{ env.PORT }}
+  user: {{ env.USER }}
+  password: {{ env.PASSWORD }}
+  database: {{ env.DATABASE }}
+  table: {{ env.TABLE }}
+out:
+  type: bigquery
+  project: {{ env.BQ_PROJECT }}
+  dataset: {{ env.BQ_DATASET }}
+  table: {{ env.BQ_TABLE }}
+  gcs_bucket: {{ env.GCS_BUCKET }}
+  auto_create_gcs_bucket: true
+  compression: GZIP
+  source_format: NEWLINE_DELIMITED_JSON
+  auth_method: private_key
+  service_account_email: {{ env.SERVICE_EMAIL }}
+  p12_keyfile: {{ env.P12_KEYFILE }}
